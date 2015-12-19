@@ -10,13 +10,13 @@ import java.util.List;
 /**
  * DAO for RestaurantEntity
  */
-
 @Repository
 public interface RestaurantRepository extends JpaRepository<RestaurantEntity, Long> {
 
+    /**
+     * Get all not deleted restaurants
+     * @return list of all not deleted restaurants
+     */
     @Query("select r from RestaurantEntity r where r.deleted = false order by name")
     List<RestaurantEntity> findAllNotDeleted();
-
-    //@Query("select r from RestaurantEntity r where r.id = ?1 and r.deleted = false")
-    //RestaurantEntity getOneNotDeleted(long restaurantId);
 }

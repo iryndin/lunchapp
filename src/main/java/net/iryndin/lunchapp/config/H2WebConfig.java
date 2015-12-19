@@ -6,7 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * H2 database configuration
+ * H2 database configuration.
+ * Define address of H2 web concole.
  */
 @Configuration
 public class H2WebConfig {

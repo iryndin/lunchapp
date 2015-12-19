@@ -11,38 +11,38 @@ import java.util.List;
 public interface IMenuItemService {
     /**
      * List all menu items for restaurant
-     * @param restaurantId
-     * @return
+     * @param restaurantId restaurant ID
+     * @return list of menu items for this restaurant
      */
     List<MenuItemDTO> listAll(long restaurantId);
 
     /**
      * Create menu item for restaurant
      *
-     * @param username
-     * @param restaurantId
-     * @param name
-     * @param price
-     * @return
+     * @param username username of the user who is creating this particular menu item
+     * @param restaurantId restaurant ID
+     * @param name menu item name
+     * @param price menu item price
+     * @return created menu item data
      */
     MenuItemDTO create(String username, long restaurantId, String name, double price);
 
     /**
      * Edit menu item for restaurant
      *
-     * @param username
-     * @param menuId
-     * @param name
-     * @param price
-     * @return
+     * @param username username of the user who is editing this particular menu item
+     * @param menuId menu item ID
+     * @param name menu item name
+     * @param price menu item price
+     * @return updated menu item data
      */
     MenuItemDTO edit(String username, long menuId, Optional<String> name, Optional<Double> price);
 
     /**
      * Delete menu item
      *
-     * @param username
-     * @param menuId
+     * @param username username of the user who is deleting this particular menu item
+     * @param menuId menu item ID
      */
     void delete(String username, long menuId);
 }
