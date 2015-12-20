@@ -12,10 +12,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class H2WebConfig {
 
+    static final String PATH_TO_H2_CONSOLE = "/h2console/*";
+
     @Bean
     ServletRegistrationBean h2servletRegistration(){
         ServletRegistrationBean registrationBean = new ServletRegistrationBean( new WebServlet());
-        registrationBean.addUrlMappings("/h2console/*");
+        registrationBean.addUrlMappings(PATH_TO_H2_CONSOLE);
         return registrationBean;
     }
 }
