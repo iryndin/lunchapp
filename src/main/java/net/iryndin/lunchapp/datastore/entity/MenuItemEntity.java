@@ -30,6 +30,19 @@ public class MenuItemEntity {
     @Column(name="update_date", nullable = false)
     private Date updateDate;
 
+    public MenuItemEntity() {
+    }
+
+    public MenuItemEntity(Long id, String name, double price, boolean deleted, RestaurantEntity restaurant, Date createDate, Date updateDate) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.deleted = deleted;
+        this.restaurant = restaurant;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+    }
+
     public Long getId() {
         return id;
     }

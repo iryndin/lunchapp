@@ -50,11 +50,11 @@ public class MenuItemServiceImpl implements IMenuItemService {
     @Transactional
     @Override
     public MenuItemDTO create(String username, long restaurantId, String name, double price) {
-        MenuItemEntity a = new MenuItemEntity();
         RestaurantEntity restaurant = restaurantRepository.getOne(restaurantId);
         if (restaurant.isDeleted()) {
             throw new EntityDeletedException("Restaurant is deleted, id=" + restaurantId);
         }
+        MenuItemEntity a = new MenuItemEntity();
         a.setRestaurant(restaurant);
         a.setName(name);
         a.setPrice(price);
