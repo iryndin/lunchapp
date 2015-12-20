@@ -28,7 +28,6 @@ public class VoteEntity {
     private AppUserEntity user;
     @Column(name="create_date", nullable = false)
     private Date createDate;
-    private boolean active;
 
     public Long getId() {
         return id;
@@ -60,13 +59,5 @@ public class VoteEntity {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
     }
 }

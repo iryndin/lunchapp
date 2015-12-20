@@ -21,3 +21,28 @@ curl -X POST --data "name=zzzz" -H "X-LunchApp-Username: admin1" -H "X-LunchApp-
 curl -X POST --data "price=999" -H "X-LunchApp-Username: admin1" -H "X-LunchApp-AuthKey:3453455" http://localhost:8080/menu/17
 
 curl -X DELETE -H "X-LunchApp-Username: admin1" -H "X-LunchApp-AuthKey:3453455" http://localhost:8080/menu/1
+
+## Votes
+
+see today votes for restaurant 1
+curl -X GET http://localhost:8080/vote/1
+
+see today votes for all restaurants
+curl -X GET http://localhost:8080/vote
+
+see results of today voting
+curl -X GET http://localhost:8080/vote/result
+
+vote for restaurant 1 as user1
+curl -X POST -H "X-LunchApp-Username: user1" -H "X-LunchApp-AuthKey:3453455" http://localhost:8080/vote/1
+
+
+
+==========
+
+voting
+unit tests for all
+logging
+one single executable jar
+document
+graphite monitoring

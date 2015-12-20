@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -32,7 +31,7 @@ public class VoteController {
     public ApiResponseDTO<Boolean> voteRestaurant(
             @RequestHeader(AppConstants.HEADER_USERNAME) String username,
             @RequestHeader(AppConstants.HEADER_KEY) String authKey,
-            @PathVariable("id") Long restaurantId
+            @PathVariable("restaurantId") Long restaurantId
     ) {
         authUtils.validateRegularUser(username, authKey);
         boolean voteAccepted = voteService.voteRestaurant(username, restaurantId);
@@ -41,9 +40,7 @@ public class VoteController {
 
     @RequestMapping(value = "/vote/{restaurantId}", method = RequestMethod.GET)
     public ApiResponseDTO<RestaurantVotesDTO> getRestaurantVotes(
-            @RequestHeader(AppConstants.HEADER_USERNAME) String username,
-            @RequestHeader(AppConstants.HEADER_KEY) String authKey,
-            @PathVariable("id") Long restaurantId
+            @PathVariable("restaurantId") Long restaurantId
     ) {
         RestaurantVotesDTO restAndVotes = voteService.getTodayVotes(restaurantId);
         return new ApiResponseDTO<>(restAndVotes);

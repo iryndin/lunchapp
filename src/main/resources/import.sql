@@ -6,9 +6,12 @@ insert into restaurant(id, name, deleted, create_date, update_date) values (5, '
 
 insert into appuser(id, role, username, password) values (1, 'admin', 'admin1',    encrypt('AES', '123456', stringtoutf8('admin1:apassword1')));
 insert into appuser(id, role, username, password) values (2, 'admin', 'admin2',    encrypt('AES', '123456', stringtoutf8('admin2:apassword1')));
-insert into appuser(id, role, username, password) values (3, 'plainuser', 'user1', encrypt('AES', '123456', stringtoutf8('user1:upassword1')));
-insert into appuser(id, role, username, password) values (4, 'plainuser', 'user2', encrypt('AES', '123456', stringtoutf8('user2:upassword2')));
-insert into appuser(id, role, username, password) values (5, 'plainuser', 'user3', encrypt('AES', '123456', stringtoutf8('user3:upassword3')));
+insert into appuser(id, role, username, password) values (3, 'plainuser', 'user1', encrypt('AES', '123456', stringtoutf8('user1:password')));
+insert into appuser(id, role, username, password) values (4, 'plainuser', 'user2', encrypt('AES', '123456', stringtoutf8('user2:password')));
+insert into appuser(id, role, username, password) values (5, 'plainuser', 'user3', encrypt('AES', '123456', stringtoutf8('user3:password')));
+insert into appuser(id, role, username, password) values (6, 'plainuser', 'user4', encrypt('AES', '123456', stringtoutf8('user4:password')));
+insert into appuser(id, role, username, password) values (7, 'plainuser', 'user5', encrypt('AES', '123456', stringtoutf8('user5:password')));
+insert into appuser(id, role, username, password) values (8, 'plainuser', 'user6', encrypt('AES', '123456', stringtoutf8('user6:password')));
 
 insert into menu(id, restaurant_id, deleted, name, price, create_date, update_date) values (1,1,false,'Any Time Frittata', 11.50, current_timestamp(), current_timestamp());
 insert into menu(id, restaurant_id, deleted, name, price, create_date, update_date) values (2,1,false,'Breakfast Bagel', 3.47, current_timestamp(), current_timestamp());
@@ -25,3 +28,10 @@ insert into menu(id, restaurant_id, deleted, name, price, create_date, update_da
 insert into menu(id, restaurant_id, deleted, name, price, create_date, update_date) values (13,5,false,'Strawberry Smoothie', 2.50, current_timestamp(), current_timestamp());
 insert into menu(id, restaurant_id, deleted, name, price, create_date, update_date) values (14,5,false,'Swiss Breakfast', 9.99, current_timestamp(), current_timestamp());
 insert into menu(id, restaurant_id, deleted, name, price, create_date, update_date) values (15,5,false,'Yogurt with Fruit', 3.99, current_timestamp(), current_timestamp());
+
+insert into user_vote(restaurant_id, user_id, create_date) values(1,3,current_timestamp);
+insert into user_vote(restaurant_id, user_id, create_date) values(1,4,current_timestamp);
+insert into user_vote(restaurant_id, user_id, create_date) values(2,5,DATEADD('MONTH', 1, DATE '2001-01-31'));
+insert into user_vote(restaurant_id, user_id, create_date) values(2,6,current_timestamp);
+insert into user_vote(restaurant_id, user_id, create_date) values(2,7,current_timestamp);
+insert into user_vote(restaurant_id, user_id, create_date) values(2,8,current_timestamp);
