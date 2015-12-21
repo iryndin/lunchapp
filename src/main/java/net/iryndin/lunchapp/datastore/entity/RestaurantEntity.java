@@ -20,6 +20,17 @@ public class RestaurantEntity {
     @Column(name="update_date", nullable = false)
     private Date updateDate;
 
+    public RestaurantEntity() {
+    }
+
+    public RestaurantEntity(Long id, String name, boolean deleted, Date createDate, Date updateDate) {
+        this.id = id;
+        this.name = name;
+        this.deleted = deleted;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+    }
+
     public Long getId() {
         return id;
     }
