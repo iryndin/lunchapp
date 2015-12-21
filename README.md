@@ -23,7 +23,7 @@ The software is done with following technologies:
 
  * Spring Boot
  * Hibernate
- * Database: embedded H2 with included data (see import.sql in resources), so no need to configure any 3rd-party database server
+ * Database: embedded H2 with included data (see [import.sql](src/main/resources/import.sql)), so no need to configure any 3rd-party database server
  * Testing: JUnit + Mockito
 
 How to compile: `mvn clean package`
@@ -55,10 +55,22 @@ Look at [AuthUtils.java](src/main/java/net/iryndin/lunchapp/web/AuthUtils.java) 
 
 ### Restaurant Management Endpoints
 
-GET /restaurant/list - list all restaurants
+ * GET /restaurant/list - list all restaurants
+ * POST /restaurant/3 - edit existing restaurant (ID=3).
+   Required Headers: `X-LunchApp-Username`, `X-LunchApp-AuthKey`.
+   Required params: `name`.
+   Example request (given that username is `admin1` and its password is `apassword1`):
+   `curl -X POST --data "name=newname" -H "X-LunchApp-Username: admin1" -H "X-LunchApp-AuthKey: 6ece548c3b9c6503d4be776fcf2a2c5" http://localhost:8080/restaurant/3`
+ * PUT /restaurant - create new restaurant with given name
+   Required Headers: `X-LunchApp-Username`, `X-LunchApp-AuthKey`.
+   Required params: `name`.
+   Example request (given that username is `admin2` and its password is `apassword2`):
+   `curl -X PUT --data "name=zzz" -H "X-LunchApp-Username: admin2" -H "X-LunchApp-AuthKey:4116e66266f900aa71d44dad86ff58d6" http://localhost:8080/restaurant`
+ * DELETE /restaurant/3 - delete existing restaurant (ID=3).
+   Required Headers: `X-LunchApp-Username`, `X-LunchApp-AuthKey`.
+   Example request (given that username is `admin1` and its password is `apassword1`):
+   `curl -X DELETE -H "X-LunchApp-Username: admin1" -H "X-LunchApp-AuthKey:6ece548c3b9c6503d4be776fcf2a2c5" http://localhost:8080/restaurant/1`
 
-POST /restaurant/3 - edit existing restaurant (ID=3).
-
-Required Headers: `X-LunchApp-Username`, `X-LunchApp-AuthKey`
+### Menu items management
 
 
