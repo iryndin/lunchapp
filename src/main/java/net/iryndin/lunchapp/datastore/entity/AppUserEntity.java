@@ -22,6 +22,16 @@ public class AppUserEntity {
     private byte[] password;
     private String role;
 
+    public AppUserEntity() {
+    }
+
+    public AppUserEntity(Long id, String username, byte[] password, String role) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
     public Long getId() {
         return id;
     }

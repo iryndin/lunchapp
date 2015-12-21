@@ -29,6 +29,16 @@ public class VoteEntity {
     @Column(name="create_date", nullable = false)
     private Date createDate;
 
+    public VoteEntity() {
+    }
+
+    public VoteEntity(Long id, RestaurantEntity restaurant, AppUserEntity user, Date createDate) {
+        this.id = id;
+        this.restaurant = restaurant;
+        this.user = user;
+        this.createDate = createDate;
+    }
+
     public Long getId() {
         return id;
     }

@@ -76,7 +76,7 @@ public class VoteServiceImpl implements IVoteService {
      * @param userVote user vote w
      * @return
      */
-    private boolean canAcceptUserVote(VoteEntity userVote) {
+    boolean canAcceptUserVote(VoteEntity userVote) {
         return Calendar.getInstance().get(Calendar.HOUR_OF_DAY) < 11;
     }
 
