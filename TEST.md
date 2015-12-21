@@ -35,14 +35,3 @@ curl -X GET http://localhost:8080/vote/result
 
 vote for restaurant 1 as user1
 curl -X POST -H "X-LunchApp-Username: user1" -H "X-LunchApp-AuthKey:4d0280f5199720f29a02787fd16285d8" http://localhost:8080/vote/1
-
-
-
-==========
-
-voting
-unit tests for all
-logging
-one single executable jar
-document
-graphite monitoring
