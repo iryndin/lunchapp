@@ -15,16 +15,16 @@ public class AuthUtilsTest {
     @Test
     public void testValidateAdminUserNormal() {
         AuthUtils au = new AuthUtils();
-        UserDTO user = new UserDTO("a", "b", "admin");
+        UserDTO user = new UserDTO("c", "d", "admin");
         au.userService = mock(IUserService.class);
         when(au.userService.get(Matchers.anyString())).thenReturn(user);
-        au.validateAdminUser("a", "aaa");
+        au.validateAdminUser("a", "69c679e43d855dc9e05d45cfecbc612");
     }
 
     @Test(expected = AuthorizationException.class)
     public void testValidateAdminUserWrongRole() {
         AuthUtils au = new AuthUtils();
-        UserDTO user = new UserDTO("a", "b", "яяяя");
+        UserDTO user = new UserDTO("a", "b", "zzzzz");
         au.userService = mock(IUserService.class);
         when(au.userService.get(Matchers.anyString())).thenReturn(user);
         au.validateAdminUser("a", "aaa");
@@ -36,7 +36,7 @@ public class AuthUtilsTest {
         UserDTO user = new UserDTO("a", "b", "plainuser");
         au.userService = mock(IUserService.class);
         when(au.userService.get(Matchers.anyString())).thenReturn(user);
-        au.validateRegularUser("a", "aaa");
+        au.validateRegularUser("a", "bf10dd54d4722766d1080efa879ee8fb");
     }
 
     @Test(expected = AuthorizationException.class)
